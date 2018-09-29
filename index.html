@@ -1,35 +1,38 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>reveal.js</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-		
-		<!-- Customized style -->
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<!-- Title -->
-				<!-- <section>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Customized style -->
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB"
+	 crossorigin="anonymous"></script> crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- Title -->
+			<section>
 					<h2>3 things to make PaGamO even better</h2>
 					<ol>
 						<li>More meaningful rewards</li>
@@ -40,52 +43,317 @@
 						<a href="mailto:ckccyu@gmail.com"><img width="30" height="30" data-src="img/CY.png" style="border-radius:50%; margin:0px; border:0px"></a>
 						<small style="vertical-align:70%">played and tested in mid-August</small>
 					</p>
-				</section> -->
-				
-				<!-- 1 -->
+				</section>
+
+			<!-- 1 -->
+			<section>
 				<section>
 					<h3>1. More meaningful rewards</h3>
-					<ul style="list-style-type:none">
-						<li><i class="fa fa-chevron-circle-right fa-md" style="vertical-align:-5%"></i>&nbsp better single-player experience</li>
-						<li><i class="fa fa-chevron-circle-right fa-md" style="vertical-align:-5%"></i>&nbsp stickier experience, with more applicable contexts</li>
+					<ul class="subtitle">
+						<li><i class="fa fa-chevron-circle-right"></i>&nbsp better single-player experience</li>
+						<li><i class="fa fa-chevron-circle-right"></i>&nbsp stickier experience, with more applicable contexts</li>
 					</ul>
 				</section>
+				<section>
+					<h3>1. More meaningful rewards</h3>
+					<div class='multiCol'>
+						<div class='col'>
+							<h4>Meaningful rewards</h4>
+							<ul class='content'>
+								<li>Rewards that provide value to the players. Rewards that the players care about and are willing to pursue.</li>
+								<li>Competition (and winning the competition) between the players, especially between acquaintances in the real world, is meaningful.</li>
+								<li>An ATK attribute of an in-game character itself is not meaningful.</li>
+								<li>An ATK attribute of an in-game character which helps the players winning the game is not meaningful.</li>
+								<li>It is meaningful only when the players care about winning the game and are aware of the connection between winning the game and the ATK attribute.</li>
+							</ul>
+							<p class='quote content'>
+								Many in-game rewards (resources) in PaGamO, such as the character’s ATK attribute, are not obviously meaningful to the players and can be improved.
+							</p>
+						</div>
+						<div class='col'>
+							<h4>Create meaningful rewards</h4>
+							<ul class='content'>
+								<li>Set up clear goals (winning conditions).<br>
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									 A prosperous land/kingdom, a better ranking.
+									</li>
+								<li>Design rewards, i.e. money, energy, character attributes, connected to the goals.</li>
+								<li>Make sure the players know the goals and care about the goals.</li>
+								<li>Make sure the players know the connections between the goals and the rewards.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>1. More meaningful rewards</h3>
+					<div class='multiCol'>
+						<div class='col'>
+							<h4>Implementation examples</h4>
+							<ul class='content'>
+								<li>Implement explanations (connections) as hover tips for each attribute/item.<br>
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									How does it influence the battles/question answering?
+								</li>
+								<li>For important resources, such as Money, Energy, and Land, provide dedicated tutorials.<br>
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									What can I do with a land? The purpose of acquiring lands?
+								</li>
+								<li>Provide explicit linkages to the goals when the resource is making its effect.<br>
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									Show computation of the damage to an opponent based on the ATK value of a character.
+								</li>
+							</ul>
+						</div>
+						<div class='col'>
+							<h4>Gain from meaningful rewards</h4>
+							<ul class='content'>
+								<li>With the already strong multi-player experience, more meaningful rewards reinforce PaGamO’s single-player experience.</li>
+								<li>With better single-player experience, PaGamO is easier to be applied in contexts outside organizations where interpersonal competitions are weaker.<br>
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									English learning of an entire country.
+								</li>
+								<li>Better single-player experience creates additional fun and value to a player, and PaGamO becomes stickier. This should especially improve the platform’s short-term attrition rates.
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									30-min, 1-day.
+								</li>
+							</ul>							
+						</div>
+					</div>
+				</section>
+			</section>
 
-				<!-- 2 -->
+			<!-- 2 -->
+			<section>
 				<section>
 					<h3>2. Smoother early-stage experience</h3>
-					<ul style="list-style-type:none">
-						<li><i class="fa fa-chevron-circle-right fa-md" style="vertical-align:-5%"></i>&nbsp demonstrate value and fun</li>
-						<li><i class="fa fa-chevron-circle-right fa-md" style="vertical-align:-5%"></i>&nbsp easier to get on board, facilitating business development</li>
+					<ul class="subtitle">
+						<li><i class="fa fa-chevron-circle-right"></i>&nbsp demonstrate value and fun</li>
+						<li><i class="fa fa-chevron-circle-right"></i>&nbsp easier to get on board,
+							facilitating business development</li>
 					</ul>
 				</section>
-				
-				<!-- 3 -->
+				<section>
+					<h3>2. Smoother early-stage experience</h3>
+					<div class='multiCol'>
+						<div class='col'>
+							<h4>Early-stage experience</h4>
+							<ul class='content'>
+								<li>The first ~10 minutes in the game. Often featured with the highest attrition rate.</li>
+								<li>When the players are unfamiliar with the game.</li>
+								<li>When the unfamiliarity creates a high hurdle for players really enjoying and involving in the activity
+									(gameplay).</li>
+								<li>Two main focuses of the early-stage experience:
+									<ul class='subli'>
+										<li>Educate the players the game’s rules (how to play) and goals (what to achieve).</li>
+										<li>Demonstrate to the players the value and fun behind the rules and goals.</li>
+									</ul>
+								</li>
+							</ul>
+							<p class='quote content'>
+								It requires a longer time to learn PaGamO by playing around by the players themselves, especially without a
+								facilitator beside the play sessions. PaGamO’s rules, goals, and value can be conveyed more clearly.
+							</p>
+						</div>
+						<div class='col'>
+							<h4>Create smoother early-stage experience</h4>
+							<ul class='content'>
+								<li>Design better tutorials—tutorials have to make clear points about how to play and about the goals in the
+									game.</li>
+								<li>During the early-stage, limit the information shown to the players, making the learning more focused.</li>
+								<li>Make the introduction process itself a meaningful reward to the players.
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									A new way to expand my land!
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>2. Smoother early-stage experience</h3>
+					<div class='multiCol'>
+						<div class='col'>
+							<h4>Implementation examples</h4>
+							<ul class='content'>
+								<li>Mask not-current-focus elements and introduce with tutorial step by step.<br>
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									Teach land expansion mechanisms (attack the bordered lands) without other players in sight.</li>
+								<li>Provide a smaller area (sea) to explore when start and increase as progresses.<br>
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									Start with 5*5 cells.
+								</li>
+								<li>Demonstrate later-stage experience, to present what the players could achieve and the fun the players could
+									acquire.<br>
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									Several beautiful and highly-developed kingdoms prosperous and colorful.
+								</li>
+							</ul>
+						</div>
+						<div class='col'>
+							<h4>Gain from smoother early-stage experience</h4>
+							<ul class='content'>
+								<li>A smoother early-stage experience reduces PaGamO players’ learning cost, shortening the period of
+									unfamiliarity.</li>
+								<li>Players are easier to get on board, enjoy the activity, and really acquire value from PaGamO.</li>
+								<li>The value and fun of PaGamO are better demonstrated; this lowers the entry barrier and facilitates the
+									communication in business development.</li>
+								<li>The improvements should especially benefit the platform’s instant attrition rates.
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									5-min, 15-min.
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<!-- 3 -->
+			<section>
 				<section>
 					<h3>3. Easily swappable visual style and elements</h3>
-					<ul style="list-style-type:none">
-						<li><i class="fa fa-chevron-circle-right fa-md" style="vertical-align:-5%"></i>&nbsp cater to distinct tastes of variant audiences</li>
-						<li><i class="fa fa-chevron-circle-right fa-md" style="vertical-align:-5%"></i>&nbsp more marketable to different organizations</li>
+					<ul class="subtitle">
+						<li><i class="fas fa-chevron-circle-right"></i>&nbsp cater to distinct tastes of
+							variant audiences</li>
+						<li><i class="fas fa-chevron-circle-right"></i>&nbsp more marketable to different
+							organizations</li>
 					</ul>
-				</section>				
-			</div>
+				</section>
+				<section>
+					<h3>3. Easily swappable visual style and elements</h3>
+					<div class='multiCol'>
+						<div class='col'>
+							<h4>Swappable visual style and elements</h4>
+							<ul class='content'>
+								<li>Obviously, different people prefer different visual styles.<br>
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									Cute Japanese style, futuristic style.
+								</li>
+								<li>Visual attraction is one of the top reasons of forming product preferences (I like this game, but not the
+									other one).</li>
+								<li>Product visual style is connected to an user’s/player’s personal style and self-conscientiousness. When the
+									two styles are aligned, the users/players gain positive perception toward that product.</li>
+								<li>In addition, pleasurable visual style itself can be a meaningful reward to the players.</li>
+								<li>If a product’s visual style is swappable, the product gains an useful feature to appeal to the
+									users/players; otherwise, the product could be limited.</li>
+							</ul>
+							<p class='quote content'>
+								While PaGamO set to be a general platform for learning, a fixed visual style could hamper its opportunity with
+								different types of players (learners).
+							</p>
+						</div>
+						<div class='col'>
+							<h4>Approaches</h4>
+							<ul class='content'>
+								<li>Start from the core items:
+									<ul class='subli'>
+										<li>Avatar, land, ocean &nbsp<i class="fa fa-caret-right fa-xs" style="vertical-align:-5%"></i>&nbsp UI &nbsp<i
+											 class="fa fa-caret-right fa-xs" style="vertical-align:-5%"></i>&nbsp Items and equipment.</li>
+									</ul>
+								</li>
+								<li>Create several in-house visual sets (themes) to be sold with the platform.</li>
+								<li>Reserve the flexibility for the client institution (develop own visual elements according to the client’s
+									needs).</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>3. Easily swappable visual style and elements</h3>
+					<div class='multiCol'>
+						<div class='col'>
+							<h4>Implementation examples</h4>
+							<ul class='content'>
+								<li>Prepare multiple default themes can be applied in the admin console of the institutional clients.</li>
+								<li>In addition, prepare a folder, with templates (prefabs) of all swappable elements.</li>
+								<li>Client institutions are allowed to swap the elements for what they believe their customers would like, only
+									with certain object specifications.
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									Dimension, file size.
+								</li>
+								<li>The visual elements can be created by individual players.</li>
+								<li>This element-bounty events can serve as a form of marketing campaign of the PaGamO platform.</li>
+							</ul>
+						</div>
+						<div class='col'>
+							<h4>Gain from the swappable visual style and elements</h4>
+							<ul class='content'>
+								<li>PaGamO caters to distinct tastes of variant audiences.<br>
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									Elementary school students and adults.
+								</li>
+								<li>Because the different tastes are catered, PaGamO acquires a generally better customer perception.</li>
+								<li>PaGamO is more marketable to different organizations.<br>
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>
+									Elementary schools and banks.
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</section>
 		</div>
+	</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
 </html>

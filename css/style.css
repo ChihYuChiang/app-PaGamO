@@ -1,3 +1,52 @@
+.multiCol {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    text-align: left;
+}
+
+.multiCol .col {
+    display: table-cell;
+    vertical-align: top;
+    width: 50%;
+    padding: 2% 0 2% 3%;
+}
+
+.multiCol .col:first-of-type { padding-left: 0; }
+
 .reveal {
-    font-size: 140%
+    font-size: 140%;
+}
+
+.reveal .content {
+    font-size: 80%;
+}
+
+.content .subli {
+    margin: 5px 0px 5px 20px;
+    list-style-type: circle;
+    font-size: 90%;
+}
+
+.reveal .subtitle {
+    list-style-type: none;
+}
+
+.reveal .quote {
+    background: #3F3F3F;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.reveal .fa-layers, .reveal .fa-chevron-circle-right {
+    vertical-align: -13%;
+}
+
+.reveal .fa-square {
+    color: #2C4C63;
+}
+
+.reveal .fa-layers-text {
+    color: #BFBFBF;
+    font-weight: 900
 }
