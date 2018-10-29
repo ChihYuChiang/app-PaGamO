@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Customized style -->
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB"
+	 crossorigin="anonymous"></script> crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- Title -->
+			<section>
+				<h2>
+					ML Project Samples
+				</h2>
+				<div>
+					<ol>
+						<a href="#/1"><li>Product Experience Feature Engineering</li></a>
+						<a href="#/2"><li>Ensemble Product Recommender</li></a>
+						<a href="#/3"><li>Customer Preference Map</li></a>
+						<a href="#/4"><li>Embedded Advertisement</li></a>
+						<a href="#/5"><li>ImgSemantic Network</li></a>
+					</ol>
+				</div>
+				<div style="font-size: 66%; padding-top: 10px">
+					<a href="mailto:ckccyu@gmail.com"></a><img width="40" height="40" data-src="img/CY.png" style="background:none; vertical-align:middle; border-radius:50%"></a>
+					&nbsp&nbspdevised and presented in 10.2018
+				</div>
+			</section>
+
+			<!-- 1 -->
+			<section>
+				<section>
+					<h3>1. Product Experience Feature Engineering</h3>
+					<img data-src="img/obj_feature.png" width="400" />
+				</section>
+				<section>
+					<h3>1. Product Experience Feature Engineering</h3>
+					<img data-src="img/model_feature.png" width="800" />
+				</section>
+			</section>
+
+			<!-- 2 -->
+			<section>
+				<section>
+					<h3>2. Ensemble Product Recommender</h3>
+					<img data-src="img/obj_recommender.png" width="600" />
+				</section>
+				<section>
+					<h3>2. Ensemble Product Recommender</h3>
+					<img data-src="img/model_recommender.png" width="900" />
+				</section>
+			</section>
+
+			<!-- 3 -->
+			<section>
+				<section>
+					<h3>3. Customer Preference Map</h3>
+					<img data-src="img/model_prefmap.png" width="700" />
+				</section>
+			</section>
+
+			<!-- 4 -->
+			<section>
+				<section>
+					<h3>4. Embedded Advertisement</h3>
+					<img data-src="img/obj_ad.png" width="800" />
+				</section>
+				<section>
+					<h3>4. Embedded Advertisement</h3>
+					<img data-src="img/model_ad.png" width="800" />
+				</section>
+			</section>
+
+			<!-- 5 -->
+			<section>
+				<section>
+					<h3>5. ImgSemantic Network</h3>
+					<img data-src="img/obj_semantic.png" width="800" />
+				</section>
+				<section>
+					<h3>5. ImgSemantic Network</h3>
+					<img data-src="img/model_semantic.png" width="900" />
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>
