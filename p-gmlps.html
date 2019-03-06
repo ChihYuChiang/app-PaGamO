@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Customized style -->
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB"
+	 crossorigin="anonymous"></script> crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- Title -->
+			<section>
+					<h2>QA Automation Project Example</h2>
+					<ol>
+						<li>Bug/Issue reproduction</li>
+						<li>Game balancing assurance</li>
+					</ol>
+					<p>
+						<a href="mailto:ckccyu@gmail.com"><img width="30" height="30" data-src="img/CY.png" style="border-radius:50%; margin:0px; border:0px"></a>
+						<small style="vertical-align:70%"> prepared in March 2019</small>
+					</p>
+			</section>
+
+			<!-- 1 -->
+			<section>
+				<section>
+					<h3>1. Bug/Issue reproduction</h3>
+					<ul class="subtitle">
+						<li><i class="fa fa-chevron-circle-right"></i>&nbsp develops model that hints the way of reproducing a bug/issue</li>
+						<li><i class="fa fa-chevron-circle-right"></i>&nbsp also helps identify the root of the issue in the code</li>
+					</ul>
+				</section>
+				<section>
+					<h3>1. Bug/Issue reproduction</h3>
+					<p class='quote content'>
+						Some bugs/issues are hard to resolve because the lack of easy ways to identify the specific procedures to reproduce them. They therefore cost disproportional time and manpower of the dev teams in the try and error efforts for reproducing and assuring that they are really solved after applying a fix.
+					</p>
+					<ul class='content'>
+						<li>Develop a model infers the occurrence of a type of bug by the detailed log recorded during the testing processes.</li>
+						<li>By visualizing the model components, it helps QA team to identify the reproduction procedure.<br>
+							<span class="fa-layers fa-fw">
+								<i class="fas fa-square"></i>
+								<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+							</span>							
+							two buttons are clicked consecutively within a very short time.</li>
+						<li>Better understanding of the bug reproduction also helps the dev teams to identify its cause and to develop the fix.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>1. Bug/Issue reproduction</h3>
+					<div class='multiCol'>						
+					<div class='col'>
+						<h4>Data</h4>
+						<ul class='content'>
+							<li>Input
+								<i class="fas fa-arrow-right"></i>
+								detailed log recorded during the testing processes. It includes:</li>
+							<ul class='content'>
+								<li>Machine specs. 
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>							
+									RAM.</li>
+								<li>Software environment.
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>										
+									operating system.</li>
+								<li>In-game character/player stats.
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>										
+									character ATK value.</li>
+								<li>Game environmental parameters (the factors outside the control of a particular player).
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>										
+									concurrent connection to the server.</li>
+								<li>Operation history, including action and time, to calculate the interval between the actions (some bugs occur only when operating with a very specific pattern).
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>										
+									click button A, within a half second, close UI panel X.</li>
+							</ul>
+							<li>Output
+								<i class="fas fa-arrow-right"></i>
+								manual/machine-identified Boolean records of the bug occurrence.</li>
+						</div>
+					<div class='col'>
+						<h4>Preliminary work</h4>
+						<ul class='content'>
+							<li>A Testing Log System that records the input data. While testing only, it affords to include very detailed log info.</li>
+							<li>The log system should be an additional layer in the code, which can be fully ignored in production.</li>
+							<li>The log system can be modified to perform the logging functions required in production.</li>
+						</ul>
+					</div>					
+					</div>
+				</section>
+				<section>
+					<h3>1. Bug/Issue reproduction</h3>
+					<h4>Model outline</h4>
+					<ul class='content'>
+						<li>Use a recurrent module to encode the operation history.</li>
+						<li>Use a dense module to encode the rest of the info, machine specs, player character stats, etc.</li>
+						<li>Concat the output of the 2 modules.</li>
+						<li>Use another dense module to predict the issue occurrence.</li>
+					</ul>
+					<img data-src="img/p-gmlps/reproduction_model.png" width="600" />
+				</section>				
+				<section>
+					<h3>1. Bug/Issue reproduction</h3>
+					<h4>Expansion</h4>
+					<ul class='content'>
+						<li>One potential problem is the lack of data to really train the model, i.e., the samples representing the specific bug occurrences are too few for a model to identify the patterns leading to those occurrences.</li>
+						<li>One solution is a Universal Testing Log System that gathers more issue occurrence samples. The “universal” indicates that we includes all potential testing contexts in the testing logs, rather than only the testing rounds QA team performs. This universal testing log could contain:</li>
+						<ul class='content'>
+							<li>QA team’s common testing routines.</li>
+							<li>Testing routines of other dev teams, such as the engineers’ tests when they finish writing an in-game function.</li>
+							<li>Public test events (alpha, beta test, etc.) that includes real players.</li>
+						</ul>
+						<li>Another solution is that, instead of a Neural Net, we use other types of model, simpler in architecture and with less parameters to learn.
+							<span class="fa-layers fa-fw">
+								<i class="fas fa-square"></i>
+								<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+							</span>								
+							for simple issues/bugs, decision trees with a constraint of its depth; for more complex ones, perhaps random forest or SVM.</li>
+					</ul>
+				</section>	
+			</section>
+
+			<!-- 2 -->
+			<section>
+				<section>
+					<h3>2. Game balancing assurance</h3>
+					<ul class="subtitle">
+						<li><i class="fa fa-chevron-circle-right"></i>&nbsp develops model that trains simulation agents</li>
+						<li><i class="fa fa-chevron-circle-right"></i>&nbsp identifies optimal gaming strategy via the agents</li>
+						<li><i class="fa fa-chevron-circle-right"></i>&nbsp simulates general gaming strategies with a loosened searching strategy</li>
+					</ul>
+				</section>
+				<section>
+					<h3>2. Game balancing assurance</h3>
+					<p class='quote content'>
+						When testing balance, one has to play the same part of a game repeatedly. This costs time and hurts team morale.
+						More over, game systems are often inter-woven, rendering the test preparation difficult.<br>
+						<span class="fa-layers fa-fw">
+							<i class="fas fa-square"></i>
+							<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+						</span>									
+						many combinations of game characters/skills.<br>
+						<span class="fa-layers fa-fw">
+							<i class="fas fa-square"></i>
+							<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+						</span>									
+						each round of testing requires creating a new character, using some shortcut commands to develop the character, and repeating this process several times if the gameplay requires a team of characters to play together. It is even more difficult to test when requires multi-player coordination.
+					</p>
+					<ul class='content'>
+						<li>Train an machine agent that learns to play the game.</li>
+						<li>The optimal gaming strategies can be identified via observing the trained agent playing the game (a form of simulation performed by the trained agents via a Markov Decision Process).</li>
+						<li>Game balancing can be evaluated through the optimized strategies, or through some sensitivity measures that evaluate the robustness of those strategies.</li>
+						<li>The agent can be adjusted to simulate the in-game behaviors of the general players. This provides further insights regarding the game balance.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>2. Game balancing assurance</h3>
+					<div class='multiCol'>						
+					<div class='col'>
+						<h4>Data</h4>
+						<ul class='content'>
+							<li>Input
+								<i class="fas fa-arrow-right"></i>
+								current states and adopted actions.</li>
+							<ul class='content'>
+								<li>States: in-game stock values related to game objectives (by the dev’s judgement).
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>												
+									current HP and MP of a game character.</li>
+								<li>Actions: in-game actions a player chooses to perform which are related to game objectives.
+									<span class="fa-layers fa-fw">
+										<i class="fas fa-square"></i>
+										<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+									</span>												
+									buy an equipment, cast a magic.</li>
+							</ul>
+							<li>Output
+								<i class="fas fa-arrow-right"></i>
+								value of the state-action combinations in terms of achieving game objectives. For example, the % of winning a boss battle.</li>
+						</ul>
+						<img data-src="img/p-gmlps/balancing_ill_1.png" width="600" />
+					</div>
+					<div class='col'>
+						<h4>Preliminary work</h4>
+						<ul class='content'>
+							<li>Identify the state and action domains, based on the knowledge of the games’ design and mechanics. What matters if a player wants to achieve the game objectives?</li>
+							<li>Establish an information pipeline, which collects the required state and action data in run-time and passes to the model input.</li>
+						</ul>
+					</div>					
+					</div>
+				</section>
+				<section>
+					<h3>2. Game balancing assurance</h3>
+					<h4>Model outline</h4>
+					<ul class='content'>
+						<li>Use a dense network to represent the game policy (the Q function).</li>
+						<ul class='content'>
+							<li>Instead of a convolutional net to receive visual inputs (gameplay videos/screenshots) as the states, we use a dense net with the predefined state elements from the pipeline. This reduces model complexity and therefore the training data and training time.</li>
+							<li>Note, a common practice in implementation uses 2 networks of the same architecture (Q and Target) for a more stable convergence.</li>
+						</ul>
+						<li>This network outputs the value/reward of the state and action combinations.</li>
+					</ul>
+					<img data-src="img/p-gmlps/balancing_model.png" width="400" />
+				</section>				
+				<section>
+					<h3>2. Game balancing assurance</h3>
+					<h4>Expansion</h4>
+					<ul class='content'>
+						<li>Adjust target searching policy to perform simulation for general players. The default searching policy, epsilon-greedy, in common reinforcement learning makes the searches prefer the best-reward solutions, which could deviate from the real behaviors/experience the general players would have (they do not have sufficient info as the dev team to decide the best policy). We apply less aggressive searching policies to help understand the design and balance from the view of the general players.</li>
+						<li>Develop sensitivity measures to evaluate how robust a solution is, i.e. the proportional change of the outcome responding to the change of the actions. This can also be deemed as the “difficulty” of a game, the difficulty a general player could find the optimal gameplay solution.</li>
+						<li>Develop models for different Stages.
+							<span class="fa-layers fa-fw">
+								<i class="fas fa-square"></i>
+								<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+							</span>									
+							one for character development; another for in battle maneuvers.<br>
+							This provides the flexibility for the QA or other dev teams to test and examine the balance under specific action combinations.
+							<span class="fa-layers fa-fw">
+								<i class="fas fa-square"></i>
+								<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
+							</span>									
+							the optimal strategy in a battle of an all-Agility character vs of an all-Strength character.</li>
+					</ul>
+					<img data-src="img/p-gmlps/balancing_ill_2.png" width="500" />
+				</section>	
+			</section>
+
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>
