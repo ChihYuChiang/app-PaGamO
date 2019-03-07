@@ -175,7 +175,7 @@
 							<i class="fas fa-square"></i>
 							<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
 						</span>									
-						many combinations of game characters/skills.<br>
+						too many combinations of game characters/skills.<br>
 						<span class="fa-layers fa-fw">
 							<i class="fas fa-square"></i>
 							<span class="fa-layers-text" data-fa-transform="shrink-8">EG</span>
@@ -186,7 +186,7 @@
 						<li>Train an machine agent that learns to play the game.</li>
 						<li>The optimal gaming strategies can be identified via observing the trained agent playing the game (a form of simulation performed by the trained agents via a Markov Decision Process).</li>
 						<li>Game balancing can be evaluated through the optimized strategies, or through some sensitivity measures that evaluate the robustness of those strategies.</li>
-						<li>The agent can be adjusted to simulate the in-game behaviors of the general players. This provides further insights regarding the game balance.</li>
+						<li>The agent can be adjusted to simulate the in-game behaviors of the general players, providing further insights regarding the game balance.</li>
 					</ul>
 				</section>
 				<section>
@@ -221,7 +221,7 @@
 					<div class='col'>
 						<h4>Preliminary work</h4>
 						<ul class='content'>
-							<li>Identify the state and action domains, based on the knowledge of the games’ design and mechanics. What matters if a player wants to achieve the game objectives?</li>
+							<li>Identify the state and action domains, based on the knowledge of the games’ design and mechanics. What matters to a player achieving the game objectives?</li>
 							<li>Establish an information pipeline, which collects the required state and action data in run-time and passes to the model input.</li>
 						</ul>
 					</div>					
@@ -237,6 +237,7 @@
 							<li>Note, a common practice in implementation uses 2 networks of the same architecture (Q and Target) for a more stable convergence.</li>
 						</ul>
 						<li>This network outputs the value/reward of the state and action combinations.</li>
+						<li>Apply the trained network as an agent to simulate a process of decision makings that combines as the optimal gaming strategy.</li>
 					</ul>
 					<img data-src="img/p-gmlps/balancing_model.png" width="400" />
 				</section>				
